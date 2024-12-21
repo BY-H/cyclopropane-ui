@@ -32,13 +32,9 @@ service.interceptors.response.use(
     error => {
         if (error.response && error.response.status == 401) {
             setToken('')
-            router
-                .push({
-                    name: 'Login'
-                })
-                .then(() => {
-                    window.location.reload()
-                })
+            router.push({
+                name: 'Login'
+            })
         } else {
             ElMessage.error(error.response.data.message)
         }
