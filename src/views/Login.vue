@@ -33,7 +33,6 @@ const submitForm = async () => {
     } else {
         const token: string = (res as any).token
         setToken(token)
-        console.log(router.getRoutes())
         router.push({ name: 'Home' })
     }
 }
