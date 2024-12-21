@@ -5,7 +5,7 @@ COPY package.json package-lock.json ./
 
 # 第二阶段：复制应用代码并构建
 COPY . .
-RUN npm run build
+RUN npm run build-only
 
 # 最终阶段：创建运行时镜像并使用 Nginx 作为代理
 FROM nginx:1.27.0-alpine
