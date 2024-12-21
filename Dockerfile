@@ -3,10 +3,6 @@ FROM node:22-alpine AS builder
 WORKDIR /app
 COPY package.json package-lock.json ./
 
-## 使用 --mount=type=cache 来缓存 npm 的依赖库
-RUN --mount=type=cache,target=/root/.npm \
-    npm install --registry=https://mirrors.tuna.tsinghua.edu.cn/npm/
-
 # 第二阶段：复制应用代码并构建
 COPY . .
 RUN npm run build
