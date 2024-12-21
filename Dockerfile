@@ -3,6 +3,9 @@ FROM node:22-alpine AS builder
 WORKDIR /app
 COPY package.json package-lock.json ./
 
+# 安装依赖
+RUN npm install
+
 # 第二阶段：复制应用代码并构建
 COPY . .
 RUN npm run build-only
